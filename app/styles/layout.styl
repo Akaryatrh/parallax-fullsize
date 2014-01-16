@@ -1,0 +1,909 @@
+@import "nib"
+@import 'fonts'
+/*
+ *  LAYOUT
+ */
+
+#container
+    position absolute
+    width 100%
+    height 100%
+
+
+    section
+        position relative
+
+        // MODULE 1 (splash ad)
+        &#module_1
+            height 80%
+            background-repeat no-repeat
+            background-position center 0
+            background-size cover
+            overflow hidden
+
+            .elements
+                
+                .element
+                    position absolute
+                    right 20%
+                    top 20%
+
+
+
+        // MODULE 2 (highlights gallery)
+        &#module_2
+            height 80%
+            width 100%
+            border-bottom 5px solid #ccc 
+            overflow hidden
+            position relative
+            top 50px
+
+            .arrows
+                position absolute
+                width 100%
+                z-index 3
+                // old safari ios support
+                top -webkit-calc(50% - 35px)
+                top calc(50% - 35px)
+
+                .arrow
+                    position absolute
+                    width 67px
+                    height 112px
+                    background url('../images/arrows.png') no-repeat left top
+                    left 5%
+                    text-indent -9999px
+                    cursor pointer
+
+                    &:hover
+                        background-position left bottom
+
+                    &.right
+                        right 5%
+                        left auto
+                        background-position right top
+
+                        &:hover
+                            background-position right bottom
+
+
+            .centerNav
+                position absolute
+                bottom 1%
+                width 100%
+                z-index 2
+
+                .navigation
+                    margin 0
+                    padding 0
+                    text-align center
+                    position relative
+                    z-index 2
+
+                    li
+                        position relative
+                        background #fff
+                        border-radius 8px
+                        width 8px
+                        height 8px
+                        display inline-block
+                        margin 0 5px
+                        opacity .5
+
+                        &.active
+                            opacity 1
+
+                        &:before
+                            content ""
+                            position absolute
+                            z-index -1
+                            background rgba(0,0,0,.4)
+                            border-radius 25px
+                            width 16px
+                            height 16px
+                            left -4px
+                            top -4px
+
+            .diaporama
+                height 100%
+                width 15000px
+                margin 0
+                padding 0
+                list-style none
+                position relative
+                z-index 1
+
+                li
+                    float left
+                    height inherit
+                    position relative
+                    background-size cover
+                    background-position top center
+                    background-repeat no-repeat
+
+                    .legend
+                        position absolute
+                        bottom 0
+                        left 0
+                        z-index 2
+                        background rgba(0,0,0,.5)
+                        padding 30px
+                        width 100%
+                        
+                        a
+                            text-decoration none
+                            h2
+                                noveCento(noveBold, 2.5em, #fff)
+                                text-transform uppercase
+                                margin 0
+
+                            .desc
+                                merry(merryLight, 2em, #fff)
+                                margin 0
+
+
+
+        // MODULE 3 (video)
+        &#module_3
+            top 50px
+            position relative
+
+            .redirect
+                position absolute
+                bottom 80px
+                right 20px
+                background rgba(0, 0, 0, .5)
+                z-index 2
+                opacity 0.25
+                transition opacity .2s
+
+                a
+                    padding 15px
+                    text-decoration none
+                    display block
+                    overflow auto
+
+                    span
+                        merry(merryReg, 18px, #666, 45px)
+                        float left
+                        margin 0 15px 0 0
+                        color #eee
+                    img
+                        float left
+
+                &:hover
+                    opacity 1
+
+            video
+                opacity .5
+                width 100%
+                height auto
+                min-height 350px
+
+                &.active
+                    opacity 1
+
+
+
+        // MODULE 4 (contents) & default rules for articles
+        &.module
+            
+            .news
+            .highlight
+                float left
+
+            .title
+                noveCento(noveLight, 35px, #999)
+                text-transform uppercase
+                margin 0 0 35px
+
+        
+
+            article
+                width 300px
+                height 270px
+                position relative
+                float left
+                margin 0 25px 25px 0 
+
+                h2
+                    noveCento(noveBook, 13px, #666, 150%)
+                    text-transform uppercase
+                    top 210px
+                    position absolute
+                    margin 0
+
+                    strong
+                        noveCento(noveBold, 13px, #666, 150%)
+
+
+
+
+                .imgContainer
+                    position relative
+                    border-top 1px solid #ccc
+                    border-bottom 2px solid #ccc
+                    width inherit
+                    position relative
+
+                    img
+                        display block
+                        width 100%
+                        height auto
+                    
+                    .desc
+                        position absolute
+                        opacity 0
+                        left -99999px
+                        transition opacity 0.2s
+
+                &:hover
+                    cursor pointer
+
+                    .imgContainer
+                        .desc
+                            width 100%
+                            height 100%
+                            background rgba(0,0,0,.9)
+                            top 0
+                            left 0
+                            padding 20px
+                            font 13px/150% Arial, sans-serif
+                            color #ddd
+                            margin 0
+                            position absolute
+                            overflow hidden
+                            opacity 1
+
+                            &:after
+                                position absolute
+                                bottom 0
+                                left 0
+                                height 25%
+                                width 100%
+                                content ""
+                                background linear-gradient(top, rgba(0,0,0,0), #000)
+
+
+            /* News frame */
+            .news
+                width 70%
+
+            /* Shopping frame */
+            &#module_4
+                
+                padding 50px 5% 0
+                border-bottom 5px solid #ddd
+                background #f3f3f3
+                overflow auto
+
+                .highlight
+                    width 30%
+
+                    .title
+                        color #53A8C0
+
+                    article
+                        width 357px
+                        height 535px
+                        margin 0
+
+                        h2
+                            top 490px
+
+                        .imgContainer
+                            height 480px
+                            position relative
+                            border-top 1px solid #ccc
+                            border-bottom 2px solid #ccc
+                            padding 8px
+                            background #fff
+                            overflow hidden
+
+                            .gallery
+                                height inherit
+                                width 1500px
+                                position relative
+
+                                img
+                                    position relative
+                                    width 341px
+                                    float left
+                                    margin 0 15px 0 0
+
+
+                
+
+
+        // MODULE 5 (universe)
+        &#module_5
+            height 80%
+            min-height 800px
+            background #CECDC9
+            background-repeat no-repeat
+            background-position center
+            overflow hidden
+
+            .univers
+                height 100%
+                width 1000px
+                margin 0 auto
+
+
+                .elements
+                    width inherit
+                    position relative
+                    height 100%
+
+                    .productAnimation img
+                        position absolute
+                        top 0
+                        left 0
+                        bottom 0
+                        right 0
+                        margin auto
+                        opacity 0
+                        
+
+                    .logo
+                        position absolute
+                        width 100%
+                        height 100%
+                        opacity 0
+                        transition opacity .5s
+
+                        &.show
+                            opacity 1
+
+                        .product
+                            top 10%
+                            left 0
+                            position absolute
+
+                        .brand
+                            bottom 10%
+                            right 0
+                            position absolute
+
+                    .bullets
+                        list-style none
+                        position absolute
+                        height 450px
+                        top 0
+                        bottom 0
+                        left 0
+                        right 0
+                        margin auto
+                        display none
+                        z-index 0
+
+
+                        &.show
+                            display block
+
+                        
+                            
+
+                        li
+                            position absolute
+                            opacity 0
+                            z-index 99
+                            transition all .5s
+                            cursor pointer
+                            transform perspective(1000px) rotateY(0)
+
+                            &:after
+                                content ""
+                                height 1px
+                                width 300px
+                                background #333
+                                position absolute
+                                transform-origin top left
+                                transform translateX(90px) scaleX(0)
+                                transition all .5s
+
+                            &.show
+                                opacity 1
+
+                                &:after
+                                    transform translateX(90px) scaleX(1)
+                            
+
+                            &:nth-child(1)
+                                top 10px
+                                left 65px
+
+                                &:after
+                                    top 30px
+
+                            &:nth-child(2)
+                                top 100px
+                                right 65px
+
+                                &.show:after
+                                        transform translateX(-30px) scaleX(1)
+
+                                &:after
+                                    top 50px
+                                    transform-origin top right
+                                    transform translateX(-30px) scaleX(0)
+
+
+                                &:hover
+                                    transform perspective(1000px) rotateY(25deg)                                    
+
+                                h3
+                                .extraInfos
+                                    text-align left
+
+
+
+                            &:nth-child(3)
+                                top 220px
+                                left 65px
+
+                                &.show:after
+                                        transform translateX(35px) scaleX(1)
+
+                                &:after
+                                    top 50px
+                                    transform translateX(35px) scaleX(0)
+
+
+                            h3
+                                margin auto 0
+                                noveCento(noveBold, 16px, #333)
+                                text-transform uppercase
+                                width 300px
+                                text-align right
+
+                            .extraInfos
+                                overflow hidden
+                                opacity 0
+                                transition all 0.2s ease-out
+                                position absolute
+                                background #666
+                                noveCento(noveLight, 13px, #fff, 150%)
+                                margin 0 auto
+                                text-transform uppercase
+                                width 300px
+                                height 0
+                                padding 0
+                                text-align right
+                                    
+
+                            &:hover
+                                transform perspective(1000px) rotateY(-25deg)
+
+                                &:after
+                                    display none
+
+                                .extraInfos
+                                    opacity 1
+                                    padding 15px
+                                    width 300px
+                                    height auto
+
+
+
+
+        // MODULE 6 (contents)
+        &#module_6
+            
+            padding 50px 5% 0
+            border-bottom 5px solid #ddd
+            background #f3f3f3
+            overflow auto
+
+            .news
+                width 75%
+                article
+                    width 200px
+                    height 220px
+
+                    h2
+                        top 150px
+
+            .highlight
+                width 25%
+
+                .title
+                    color #DB559A
+
+                ul
+                    list-style none
+                    margin 0
+                    padding 0
+
+                    li
+                        overflow auto
+                        margin 0 0 15px 0
+
+                        img
+                            width 54px
+                            height 54px
+                            float left
+                            padding 3px
+                            border 1px solid #ccc
+                            border-bottom 2px solid #ccc
+
+                        h3
+                            noveCento(noveBook, 13px, #666, 150%)
+                            margin 0 0 0 10px
+                            float left
+                            width -webkit-calc(100% - 65px)
+                            width calc(100% - 65px)
+                            position relative
+                            top -3px
+                            text-transform uppercase
+
+                            strong
+                                noveCento(noveBold, 13px, #666, 150%)
+
+
+        // MODULE 7 (photoGrid)
+        &#module_7
+            height 100%
+            width 100%
+            
+            .photoGrid
+                /*margin 10% auto 0 auto*/
+                width 1040px
+                top 0
+                left 0
+                bottom 0
+                right 0
+                margin auto
+                height 600px
+                position absolute
+
+
+                .lightBox
+                    position fixed
+                    top 0
+                    left -99999px
+                    width 100%
+                    height 100%
+                    background rgba(0,0,0,.9)
+                    opacity 0
+                    z-index 999
+                    transition opacity .2s
+
+                    &.active
+                        left 0
+                        opacity 1
+                        cursor pointer
+
+                    .imgContainer
+                        text-align center
+                        height 100%
+                        width 100%
+                        position relative
+
+                        &.loading
+
+                            &:before
+                                content ""
+                                width 50px
+                                height 50px
+                                margin auto
+                                position absolute
+                                top 0
+                                left 0
+                                bottom 0
+                                right 0
+                                z-index 1
+                                border-radius 50px
+                                background rgba(0,0,0,.9) url('../images/slide_7/ajax-loader.gif') no-repeat center
+
+                            .arrows
+                            .centerNav
+                                opacity 0
+
+                        img
+                            margin 5% 0 0
+                            max-width 80%
+                            max-height 80%
+                            padding 5px
+                            background #eee
+                            position absolute
+                            top 0
+                            left 0
+                            right 0
+                            bottom 0
+                            margin auto
+
+
+                        .arrows
+                            position absolute
+                            width 100%
+                            z-index 3
+                            // old safari ios support
+                            top -webkit-calc(50% - 35px)
+                            top calc(50% - 35px)
+                            opacity 1
+                            transition opacity .2s
+
+
+                            .arrow
+                                position absolute
+                                width 67px
+                                height 112px
+                                background url('../images/arrows.png') no-repeat left top
+                                left 15%
+                                text-indent -9999px
+                                cursor pointer
+                                
+
+                                &:hover
+                                    background-position left bottom
+
+                                &.right
+                                    right 15%
+                                    left auto
+                                    background-position right top
+
+                                    &:hover
+                                        background-position right bottom
+
+
+                        .centerNav
+                            position absolute
+                            bottom 1%
+                            width 100%
+                            z-index 2
+                            opacity 1
+                            transition opacity .2s
+
+                            .navigation
+                                margin 0
+                                padding 0
+                                text-align center
+                                position relative
+                                z-index 2
+
+                                li
+                                    position relative
+                                    background #fff
+                                    border-radius 8px
+                                    width 8px
+                                    height 8px
+                                    display inline-block
+                                    margin 0 5px
+                                    opacity .5
+
+                                    &.active
+                                        opacity 1
+
+                                    &:before
+                                        content ""
+                                        position absolute
+                                        z-index -1
+                                        background rgba(0,0,0,.4)
+                                        border-radius 25px
+                                        width 16px
+                                        height 16px
+                                        left -4px
+                                        top -4px
+
+
+                .modules
+                    position relative
+
+                    h2
+                        noveCento(noveLight, 35px, #7A7184)
+                        text-transform uppercase
+                        float left
+                        opacity 0
+                        transition opacity 2s
+
+                        &.show
+                            opacity 1
+
+                    .column
+                        float left
+                        width 250px
+                        margin 0 10px 0 0
+                        position relative
+
+                        &.large
+                            width 510px
+                            clear left
+
+                            .block:nth-child(2)
+                                margin 0 10px 0 0
+
+                        .block
+                            float left
+                            margin 0 0 10px 0
+                            box-shadow 0 0 5px rgba(0,0,0,.25)
+                            cursor pointer
+                            opacity 0
+                            transition opacity 1s
+
+                            &.show
+                                opacity 1
+
+                            img
+                                display block
+
+
+
+                                
+
+        // MODULE 8 (slider produits)
+        &#module_8
+            height 80%
+            overflow hidden
+            position relative
+
+
+            .logo
+                position absolute
+                top 5%
+                left 0
+                margin auto
+                right 0
+                text-indent -9999px
+                background-repeat no-repeat
+                width 300px
+                height 73px
+                z-index 3
+
+
+
+            .arrows
+                position absolute
+                width 100%
+                z-index 3
+                // old safari ios support
+                top -webkit-calc(50% - 35px)
+                top calc(50% - 35px)
+
+                .arrow
+                    position absolute
+                    width 67px
+                    height 112px
+                    background url('../images/arrows.png') no-repeat left top
+                    left 5%
+                    text-indent -9999px
+                    cursor pointer
+
+                    &:hover
+                        background-position left bottom
+
+                    &.right
+                        right 5%
+                        left auto
+                        background-position right top
+
+                        &:hover
+                            background-position right bottom
+
+
+            .centerNav
+                position absolute
+                bottom 1%
+                width 100%
+                z-index 2
+
+                .navigation
+                    margin 0
+                    padding 0
+                    text-align center
+                    position relative
+                    z-index 2
+
+                    li
+                        position relative
+                        background #fff
+                        border-radius 8px
+                        width 8px
+                        height 8px
+                        display inline-block
+                        margin 0 5px
+                        opacity .5
+
+                        &.active
+                            opacity 1
+
+                        &:before
+                            content ""
+                            position absolute
+                            z-index -1
+                            background rgba(0,0,0,.4)
+                            border-radius 25px
+                            width 16px
+                            height 16px
+                            left -4px
+                            top -4px
+
+            .diaporama
+                height 100%
+                width 15000px
+                margin 0
+                padding 0
+                list-style none
+                position relative
+                z-index 1
+                left 0
+
+                li
+                    float left
+                    height inherit
+                    position relative
+                    text-align center
+
+                    > img
+                        position absolute
+                        top 0
+                        bottom 0
+                        left 0
+                        right 0
+                        margin auto
+                        max-height 60%
+
+                    .legend
+                        position absolute
+                        z-index 2
+                        text-indent -9999px
+                        right 35%
+                        top 25%
+                        
+                        a
+                            text-decoration none
+                            cursor pointer
+
+                            .desc
+                                noveCento(noveLight, 2.5em, #fff)
+                                margin 0
+
+                            img
+                                display block
+
+
+                    &:nth-child(2) .legend
+                        right 35%
+
+                    &:nth-child(3) .legend
+                        right 20%
+                        top 45%
+
+                    &:nth-child(4) .legend
+                        right 50%
+                        
+                        
+
+
+
+
+
+/*
+ * Responsive rules
+ */
+
+/* from 480px to 1499px */
+@media screen and (min-width: 480px) and (max-width: 1499px)
+
+    #container
+        #module_4.module
+
+            .news
+                
+                article
+                    width 240px
+                    height 220px
+                        
+
+                    h2
+                        top 170px
+
+            
+
+
+
+
+
+
+

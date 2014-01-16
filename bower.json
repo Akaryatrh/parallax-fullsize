@@ -1,0 +1,20 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "dependencies": {
+    "console-polyfill": "~0.1.0",
+    "jquery": "~2.0.3",
+    "normalize-css": "~2.1.2",
+    "jquery.stellar": "~0.6.2",
+    "jquery-waypoints": "~2.0.3",
+    "jquery.transit": "~0.9.9",
+    "modernizr": "~2.7.1",
+    "60fps-scroll" : "~0.1.0"
+  },
+  "overrides": {
+    "jquery-waypoints" : {"main": "waypoints.js"},
+  	"jquery.transit" : {"main": "jquery.transit.js"},
+    "modernizr" : {"main": "modernizr.js"}
+  }
+}
