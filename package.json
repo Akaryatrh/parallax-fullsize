@@ -1,6 +1,6 @@
 {
-  "name": "test-parallax",
-  "description": "Test parallax site",
+  "name": "parallax-fullsize",
+  "description": "parallax fullSize",
   "author": "svaneyck",
   "version": "0.0.1",
   "repository": {
@@ -8,7 +8,7 @@
     "url": ""
   },
   "scripts": {
-    "start": "brunch watch --server",
+    "start": "brunch w -s",
     "test": "brunch test"
   },
   "dependencies": {

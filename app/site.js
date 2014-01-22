@@ -78,11 +78,12 @@
 					method: "smallSlide"
 				},
 
+				
 				{
 					name: "module_5",
 					method: "animation"
 				},
-
+				
 				{
 					name: "module_7",
 					method: "photoGrid"
@@ -104,10 +105,11 @@
 					
 					init: function(target){
 						
-						
-						var items = target.find(".diaporama li");
+						var diapo = target.find(".diaporama");
+						var items = diapo.find("li").not(".movingElements");
 						var itemsLength = items.length;
 						var width = target.width();
+						diapo.width(itemsLength * width);
 						var _this = this;
 						var autoPlay;
 						var targetId = target[0].id;
@@ -160,6 +162,7 @@
 						$(window).resize(function(){
 							var width = target.width();
 							items.width(width);
+							diapo.width(itemsLength * width);
 						});
 
 						// Auto play
@@ -191,7 +194,7 @@
 						if(diapo.data("scroll-h")){
 
 							var image;
-							var allDiapos = diapo.find("li").length;
+							var allDiapos = diapo.find("li").not(".movingElements").length;
 							// Get background y position
 					        var bpy = diapo.css('backgroundPosition').split(' ')[1];
 							properties.backgroundPosition = ((-1 * movement) + (movement/allDiapos))+'px '+bpy;
@@ -297,43 +300,43 @@
 					init : function(target){
 						var _this = this;
 						_this.target = target;
-						var images = target.find(".productAnimation img");
-						// Show logos
-						target.find(".logo").addClass("show");
-						
-						_this.showHide(images.eq(0));
-						
-					},
+						var container = target.find(".boxCenter");
 
-					showHide : function(image){
-						var _this = this;
-						image.transition({opacity: 1},2000);
-						if(image.is(':last-child')){
-							_this.showInfos(_this.target);
-						}else{
-							setTimeout(function(){
-								image.transition({opacity: 0},1500);
-								_this.showHide(image.next());
-							},1500);
+						// fade main box (animation made with jQuery to have a proper callback)
+						target.find(".univers").transition({opacity: 1}, 500, function(){
+							// Show logos & text
+							target.find(".logo, .decoration").addClass("show");
 							
-						}
+							// Show product
+							var newTarget = container.find(".left");
+							var from = "down";
+							_this.animateSticks(target, container, newTarget, from);
+							newTarget = container.find(".right");
+							from = "top";
+							_this.animateSticks(target, container, newTarget, from);
+							
+						});
+
+						// Events
+						target.find(".toggleBox").on("click", function(e){
+							$(this).parent().toggleClass("collapsed");
+						});
 					},
 
-					showInfos : function(){
-						var _this = this;
-						var bullets = _this.target.find(".bullets")
-						var allBullets = bullets.find("li");
+					animateSticks : function(containerTop,container, target, from){
+						
+						var cPos = (containerTop.height() - container.height()) / 2;
+						var tHeight = target.height();
+						var operator;
 
-						var showBullet = function(bullet){
-							setTimeout(function(){
-								bullet.addClass("show");
-								showBullet(bullet.next());
-							},1000);
-						};
-
-						bullets.addClass("show");
-						showBullet(allBullets.eq(0));
-
+						if(from === "top"){
+							operator = -1;
+						}else{
+							operator = 1;
+						}
+						// Set target position (calc from container pos with target height)
+						target.css({top: (cPos + tHeight)*operator});
+						target.addClass("show").transition({top: 0}, 500);
 						
 
 					}
@@ -354,7 +357,7 @@
 						        return function () {
 						            $(blocksOrder[x]).addClass("show");	
 						        };
-						    }(i), 125 * i);
+						    }(i), 50 * i);
 						};
 						target.find("h2").addClass("show");
 
