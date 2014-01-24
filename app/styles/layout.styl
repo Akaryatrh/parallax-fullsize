@@ -41,7 +41,7 @@ blurFilter(value)
                     position absolute
 
                 .accroche
-                    top 55%
+                    top 30%
                     left 0
                     right 0
                     margin auto
@@ -588,13 +588,13 @@ blurFilter(value)
             background-position center
             
             .photoGrid
-                width 1040px
+                width 840px
                 top 0
                 left 0
                 bottom 0
                 right 0
                 margin auto
-                height 675px
+                height 585px
                 position absolute
 
 
@@ -742,24 +742,26 @@ blurFilter(value)
                         &.show
                             opacity 1
 
+                    .blocks
+                        overflow hidden
 
-                    .block
-                        float left
-                        margin 0 10px 10px 0
-                        box-shadow 0 0 5px rgba(0,0,0,1)
-                        cursor pointer
-                        opacity 0
-                        transform scale(3) perspective(500px) rotateX(30deg)
-                        blurFilter(10px)
-                        transition all .5s
+                        .block
+                            float left
+                            margin 0 10px 10px 0
+                            box-shadow 0 0 5px rgba(0,0,0,1)
+                            cursor pointer
+                            opacity 0
+                            transform scale(3) perspective(500px) rotateX(30deg)
+                            blurFilter(10px)
+                            transition all .5s
 
-                        &.show
-                            transform scale(1) perspective(500px) rotateX(0)
-                            blurFilter(0)
-                            opacity 1
+                            &.show
+                                transform scale(1) perspective(500px) rotateX(0)
+                                blurFilter(0)
+                                opacity 1
 
-                        img
-                            display block
+                            img
+                                display block
 
 
 
@@ -767,7 +769,7 @@ blurFilter(value)
 
         // MODULE 8 (slider produits)
         &#module_8
-            height 80%
+            height 100%
             overflow hidden
             position relative
 
@@ -879,8 +881,8 @@ blurFilter(value)
                         right 0
                         bottom 0
                         margin auto
-                        width 586px
-                        height 640px
+                        width 550px
+                        height 550px
                         background #fff
                         text-align center
                         cursor pointer
